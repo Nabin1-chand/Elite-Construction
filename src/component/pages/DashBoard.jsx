@@ -5,12 +5,12 @@ import Sidebar from "../sidebar";
 
 const Dashboard = () => {
   return (
-     <Flex direction="column" minH="100vh">
+     <Flex direction="column" minH="100vh" w="100vw">
       {/* Header */}
       <Header />
 
       {/* Main content */}
-      <Flex flex="1">
+      <Flex flex="1" minH="0">
         {/* Sidebar */}
         <Sidebar />
 
@@ -18,8 +18,11 @@ const Dashboard = () => {
         <Box
           flex="1"
           p={6}
-          bg="gray.50"       // optional light background
-          minH="calc(100vh - 60px)" // full height minus header
+          bg="gray.50"     
+             minH="0"
+          display="flex"
+          flexDirection="column"
+          overflowY="auto" 
         >
           {/* Metric Cards */}
           <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6} mb={6}>
@@ -29,20 +32,7 @@ const Dashboard = () => {
             <DashboardCard title="Completed Tasks" value="18" bg="purple.50" />
           </SimpleGrid>
 
-          {/* Chart/Table Placeholder */}
-          <Box
-            h="400px"
-            bg="white"
-            rounded="lg"
-            shadow="md"
-            p={4}
-            textAlign="center"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-          >
-            Chart / Graph Placeholder
-          </Box>
+         
         </Box>
       </Flex>
     </Flex>
