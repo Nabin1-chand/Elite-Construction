@@ -4,10 +4,11 @@ const DashboardCard = ({ title, value, bg }) => {
   return (
     <Box
       bg={bg || "white"}
-      p={6}
+      p={3}
       rounded="lg"
       shadow="md"
-      w="full"
+        minH="80px" 
+       w="160px" 
       textAlign="center"
     >
       <Heading size="lg">{value}</Heading>
