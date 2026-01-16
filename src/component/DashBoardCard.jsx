@@ -8,7 +8,7 @@ const DashboardCard = ({ title, value, bg }) => {
       rounded="lg"
       shadow="md"
         minH="80px" 
-       w="160px" 
+       w="190px" 
       textAlign="center"
     >
       <Heading size="lg">{value}</Heading>
