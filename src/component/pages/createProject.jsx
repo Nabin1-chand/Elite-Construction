@@ -11,7 +11,25 @@ import {
 }  from "@chakra-ui/react";
 import Sidebar from "../sidebar";
 import Header from "../Header";
+import { useState, useContext } from "react";
+import { ProjectContext } from "../../provider/ProjectContext";
 const CreateProject = () => {
+  const {addProject} = useContext(ProjectContext);
+  const [projectName, setProjectName] = useState("");
+  
+  const [numberOfHoles, setNumberOfHoles] = useState("");
+
+  const handleCreate = () => {
+    if (!projectName) return alert("Enter project name");
+    if (!numberOfHoles) return alert("Enter number of holes");
+    addProject({
+      id: projectName.toLowerCase().replace(/\s+/g, "-"),
+      name: projectName,
+      numberOfHoles: Number(numberOfHoles),
+    });
+    setProjectName("");
+    alert("Project created!");
+  };
   return (
     <Flex direction="column" minH="100vh" w="100vw">
       {/* Header */}
@@ -37,7 +55,10 @@ const CreateProject = () => {
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
               <FormControl>
                 <FormLabel>Project Name</FormLabel>
-                <Input placeholder="Enter project name" />
+                <Input
+                value={projectName}
+                onChange={(e)=>setProjectName(e.target.value)}
+                 placeholder="Enter project name" />
               </FormControl>
 
               <FormControl>
@@ -52,7 +73,13 @@ const CreateProject = () => {
 
               <FormControl>
                 <FormLabel>Number of Hole</FormLabel>
-                <Input placeholder="Enter number of hole" />
+                <Input 
+                // value={numberOfHoles}
+                //  onChange={(e) => setNumberOfHoles(e.target.value)}
+                   value={numberOfHoles}
+                  onChange={(e) => setNumberOfHoles(e.target.value)}
+                type="number"
+                placeholder="Enter number of hole" />
               </FormControl>
             </SimpleGrid>
 
@@ -63,7 +90,7 @@ const CreateProject = () => {
 
             <Flex justify="flex-end" mt={6} gap={3}>
               <Button variant="outline">Cancel</Button>
-              <Button colorScheme="blue">Create Project</Button>
+              <Button onClick={handleCreate} colorScheme="blue">Create Project</Button>
             </Flex>
           </Box>
         </Box>

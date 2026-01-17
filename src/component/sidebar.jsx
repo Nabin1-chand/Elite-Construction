@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 const Sidebar = () => {
   const links = [
     { name: "Dashboard", path: "/dashboard" },
+    { name: "Project Index", path: "/projects/showProject" },
     { name: "Create Project", path: "/projects/create" },
     { name: "Supervisor", path: "/reports" },
     { name: "Drilling", path: "/reports" },
