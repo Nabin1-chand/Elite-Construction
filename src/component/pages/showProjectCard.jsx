@@ -10,56 +10,70 @@ import {
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { DeleteIcon } from "@chakra-ui/icons";
-const ProjectCard = ({ name, description,
-    onDelete,
-}) => {
+import { useContext } from "react";
+import { ProjectContext } from "../../provider/ProjectContext";
+const ProjectCard = (
+) => {
+    const {projects, deleteProject} =useContext(ProjectContext);
       const navigate = useNavigate();
+        const handleConfigure = (projectId) => {
+    // navigate to create project page
+    // optionally, you can pass projectId as state to edit later
+    navigate("/projects/create", { state: { projectId } });
+  };
     return (
         <Flex direction="column" minH="100vh" w="100vw">
             <Header />
             <Flex flex="1">
                 <Sidebar />
-                <Box
-                    bg="white"
-                    p={10}
-                    ml={20}
-                    mt={10}
-                    borderRadius="lg"
-                    boxShadow="md"
-                    _hover={{ boxShadow: "lg" }}
-                    transition="0.2s"
-                >
-                    {/* Project Name */}
-                    <Heading size="md" mb={2}>
-                        {name}
-                    </Heading>
+ <Flex wrap="wrap" gap={4} p={6} bg="gray.50">
 
-                    {/* Project Description */}
-                    <Text fontSize="sm" color="gray.600">
-                        {description || "No description provided."}
-                    </Text>
-                    {/* Bottom Actions */}
-                    <Flex mt={4} justify="space-between" align="center">
-                        <Button
-                            size="sm"
-                            colorScheme="blue"
-                            variant="outline"
-                            // onClick={onConfigure}
-                               onClick={() => navigate("/projects/create")}
-                        >
-                            Configure
-                        </Button>
+         {projects.map((p) => (
+        <Box
+          key={p.id}
+          bg="white"
+          p={4}
+          mr={15}
+          rounded="md"
+          shadow="md"
+          w="300px"
+          h="300px"
+          display="flex"
+          flexDirection="column"
+          justifyContent="space-between"
+        >
+          <Box>
+            <Text fontWeight="bold" fontSize="lg">
+              {p.name}
+            </Text>
+            <Text fontSize="sm" color="gray.600">
+              Client: {p.client || "N/A"}
+            </Text>
+            <Text fontSize="sm" color="gray.600">
+              Holes: {p.numberOfHoles}
+            </Text>
+            <Text fontSize="sm" color="gray.600">
+              {p.description || "No description"}
+            </Text>
+          </Box>
 
-                        <IconButton
-                            size="sm"
-                            colorScheme="red"
-                            variant="ghost"
-                            icon={<DeleteIcon />}
-                            aria-label="Delete project"
-                            onClick={onDelete}
-                        />
-                    </Flex>
-                </Box>
+          <Flex justify="space-between" mt={4}>
+            <Button size="sm" colorScheme="blue" onClick={() => handleConfigure(p.id)}>
+              Configure
+            </Button>
+            <IconButton
+              size="sm"
+              colorScheme="red"
+              icon={<DeleteIcon />}
+                onClick={() => deleteProject(p.id)}
+
+            />
+          </Flex>
+        </Box>
+        
+      ))}
+
+</Flex>
             </Flex>
         </Flex>
 
