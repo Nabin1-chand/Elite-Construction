@@ -51,8 +51,8 @@ const CreateProject = () => {
               </FormControl>
 
               <FormControl>
-                <FormLabel>End Date</FormLabel>
-                <Input type="date" />
+                <FormLabel>Number of Hole</FormLabel>
+                <Input placeholder="Enter number of hole" />
               </FormControl>
             </SimpleGrid>
 
