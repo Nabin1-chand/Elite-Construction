@@ -1,11 +1,20 @@
-import { Box, Text, SimpleGrid, Flex, Divider } from "@chakra-ui/react";
+import { Box, Text, SimpleGrid, Flex, Divider, Select } from "@chakra-ui/react";
 import DashboardCard from "../DashBoardCard";
 import Header from "../Header";
 import Sidebar from "../sidebar";
 import HoleCard from "../HoleCard";
-
+import { useState } from "react";
 const Dashboard = () => {
   const holes = Array.from({ length: 92 }, (_, i) => `B${i + 1}`);
+    const [project, setProject] = useState("");
+      // Example hole status (you can fetch from API later)
+  const inProgress = ["B1", "B3", "B11"];
+   const completed = [];
+     const getHoleColor = (hole) => {
+    if (completed.includes(hole)) return "green.300";
+    if (inProgress.includes(hole)) return "yellow.400";
+    return "gray.200";
+  };
   return (
     <Flex direction="column" minH="100vh" w="100vw">
       <Header />
@@ -24,89 +33,90 @@ const Dashboard = () => {
           flexDirection="column"
           overflowY="auto"
         >
-          {/* Project Overview Section (Opposite Sides) */}
+          {/* DropDown select Project */}
+          <Box bg="white"
+          p={4}
+          borderRadius='lg'
+          boxShadow="md"
+          w="40%"
+          mb={6}
+          >
+          <Text fontWeight="bold" mb={2}
+          Select Project
+          ></Text>
+              <Select
+              placeholder="Select Project---"
+              value={project}
+              onChange={(e) => setProject(e.target.value)}
+            >
+                       <option value="mrta-purple-south">
+                MRTA Purple Line (South) Project Contract 3 Underground
+              </option>
+              <option value="project-2">Project 2</option>
+              <option value="project-3">Project 3</option>
+            </Select>
+          </Box>
           <Box
             bg="white"
-            p={4}
+            p={5}
             borderRadius="lg"
             boxShadow="md"
             mb={6}
           >
-            <Flex justify="space-between" align="center" flexWrap="wrap" mb={8} mt={3}>
+      <Flex justify="space-between" mb={4}>   
               {/* LEFT SIDE - Summary Text */}
-              <Box>
-                <Text fontWeight="bold" fontSize="lg" mb={1}>
-                  Project Status Summary
-                </Text>
+                     <Text fontWeight="bold" fontSize="lg">
+                Project Status Overview
+              </Text>       
 
-              </Box>
 
               {/* RIGHT SIDE - Status Circles */}
-              <Flex gap={6} align="center">
+              <Flex gap={4}>
                 {/* Not Started */}
-                <Flex align="center" gap={2}>
-                  <Box w={4} h={4} borderRadius="full" bg="red.500" />
-                  <Text>Not Started</Text>
+                <Flex align="center" gap={1}>
+                  <Box w={3} h={3} bg="gray.300" borderRadius="full" />
+                  <Text fontSize="sm">Not Started</Text> 
                 </Flex>
 
                 {/* In Progress */}
-                <Flex align="center" gap={2}>
-                  <Box w={4} h={4} borderRadius="full" bg="yellow.400" />
-                  <Text>In Progress</Text>
-                </Flex>
+                   <Flex align="center" gap={1}>
+                  <Box w={3} h={3} bg="yellow.400" borderRadius="full" />
+                  <Text fontSize="sm">In Progress</Text>
+                </Flex>         
 
                 {/* Completed */}
-                <Flex align="center" gap={2}>
-                  <Box w={4} h={4} borderRadius="full" bg="green.500" />
-                  <Text>Completed</Text>
+                <Flex align="center" gap={1}>
+                  <Box w={3} h={3} bg="green.400" borderRadius="full" />
+                  <Text fontSize="sm">Completed</Text>
                 </Flex>
               </Flex>
 
             </Flex>
             {/* Metric Cards */}
-            <SimpleGrid columns={{ base: 2, md: 2, lg: 4 }} spacing={8} mb={6}>
-              <DashboardCard title="Total Projects" value="25" bg="blue.50" />
-              <DashboardCard title="Pending Tasks" value="8" bg="yellow.50" />
-              <DashboardCard title="Completed Tasks" value="18" bg="purple.50" />
-              <DashboardCard title="Total Holes" value="82" bg="blue.50" />
-
+                 <SimpleGrid columns={{ base: 2, md: 4 }} spacing={4}>
+              <DashboardCard title="NOT STARTED" value="85" color="gray.100" />
+              <DashboardCard title="IN PROGRESS" value="7" color="yellow.100" />
+              <DashboardCard title="COMPLETED" value="0" color="green.100" />
+              <DashboardCard title="TOTAL HOLES" value="92" color="blue.100" />
             </SimpleGrid>
           </Box>
-
-          <Box flex="1" bg="gray.50" p={1}>
-
-            {/* TOTAL CARD */}
-            <Box
-              bg="white"
-              // w="200px"
-              w="100vw"
-              // h="100px"
-              borderRadius="lg"
-              boxShadow="md"
-              display="flex"
-              flexDirection="column"
-              alignItems="left"
-              p={4}
-              // justifyContent="center"
-              mb={4}
-            >
-
-              <Text fontSize="2xl" mb={3} fontWeight="bold" color="black.500">
-                Drill Holes Digram(B1-B92)
-              </Text>
-              <Divider mb={4} borderColor="black" />
-              <SimpleGrid
-                columns={{ base: 4, sm: 6, md: 10, lg: 12 }}
-                spacing={3}
-                justifyItems="start"
-              >
-            {/* HOLE CARDS GRID */}
-
-                {holes.map((hole) => (
-                  <HoleCard key={hole} label={hole} />
-                ))}
-              </SimpleGrid>
-            </Box>
+          
+          {/* ================= DRILLING HOLES ================= */}
+<Box bg="white" p={5} borderRadius="lg" boxShadow="md">
+  <Text fontSize="lg" fontWeight="bold" mb={3}>
+              Drilling Holes Diagram (B1 - B92)
+            </Text>
+            <Divider mb={4} />
+                   <SimpleGrid columns={{ base: 4, sm: 6, md: 10, lg: 12 }} spacing={4}>
+              {holes.map((hole) => (
+                <HoleCard
+                  key={hole}
+                  label={hole}
+                  color={getHoleColor(hole)}
+                />
+              ))}
+            </SimpleGrid>
+      
           </Box>
         </Box>
       </Flex>

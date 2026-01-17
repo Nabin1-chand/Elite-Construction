@@ -7,6 +7,10 @@ const Sidebar = () => {
     { name: "Create Project", path: "/projects/create" },
     { name: "Supervisor", path: "/reports" },
     { name: "Drilling", path: "/reports" },
+    { name: "Drilling Log", path: "/reports" },
+    { name: "Drilling Summary log", path: "/reports" },
+
+
     { name: "Angle Recorder", path: "/reports" },
     { name: "Reports", path: "/reports" },
     
