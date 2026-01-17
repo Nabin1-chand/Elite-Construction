@@ -78,7 +78,7 @@ const Dashboard = () => {
 
 
           
-          <Box flex="1" bg="gray.50" p={6}>
+          <Box flex="1" bg="gray.50" p={1}>
 
             {/* TOTAL CARD */}
             <Box
