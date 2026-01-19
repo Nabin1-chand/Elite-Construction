@@ -6,7 +6,7 @@ const Sidebar = () => {
     {
       title: "NAVIGATION",
       links: [
-        { name: "Dashboard", path: "/dashboard" },
+        { name: "Dashboard", path: "/dashboard",},
       ],
     },
     {
@@ -19,16 +19,17 @@ const Sidebar = () => {
     {
       title: "DRILLING WORK",
       links: [
-        { name: "Drilling", path: "/reports" },
+        { name: "Drilling", path: "/reports", 
+ },
         { name: "Drilling Log", path: "/reports" },
-        { name: "Drilling Summary Log", path: "/reports" },
+        { name: "Drilling Summary Log", path: "/projects/dailyDrillingSummary-log" },
         { name: "Angle Log", path: "/projects/angle-log" },
       ],
     },
     {
       title: "SUPERVISION WORK",
       links: [
-        { name: "Supervisor", path: "/reports" },
+        { name: "Daily Supervision Log", path: "/projects/supervision-log" },
       ],
     },
     {
