@@ -26,13 +26,18 @@ export const ProjectProvider = ({ children }) => {
       )
     );
   };
+  // Delete a project
+  const deleteProject = (projectId) => {
+    setProjects((prev) => prev.filter((p) => p.id !== projectId));
+  };
 
   return (
     <ProjectContext.Provider
       value={{
         projects,
         addProject,
-        updateNumberOfHoles
+        updateNumberOfHoles,
+        deleteProject
       }}
     >
       {children}

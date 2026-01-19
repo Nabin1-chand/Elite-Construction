@@ -2,47 +2,86 @@ import { Box, VStack, Text } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
-  const links = [
-    { name: "Dashboard", path: "/dashboard" },
-    { name: "Project Index", path: "/projects/showProject" },
-    { name: "Create Project", path: "/projects/create" },
-    { name: "Supervisor", path: "/reports" },
-    { name: "Drilling", path: "/reports" },
-    { name: "Drilling Log", path: "/reports" },
-    { name: "Drilling Summary log", path: "/reports" },
-
-
-    { name: "Angle Recorder", path: "/reports" },
-    { name: "Reports", path: "/reports" },
-    
-    { name: "Settings", path: "/settings" },
+  const sections = [
+    {
+      title: "NAVIGATION",
+      links: [
+        { name: "Dashboard", path: "/dashboard" },
+      ],
+    },
+    {
+      title: "ADMINISTRATIVE",
+      links: [
+        { name: "Project Index", path: "/projects/showProject" },
+        { name: "Create Project", path: "/projects/create" },
+      ],
+    },
+    {
+      title: "DRILLING WORK",
+      links: [
+        { name: "Drilling", path: "/reports" },
+        { name: "Drilling Log", path: "/reports" },
+        { name: "Drilling Summary Log", path: "/reports" },
+        { name: "Angle Log", path: "/projects/angle-log" },
+      ],
+    },
+    {
+      title: "SUPERVISION WORK",
+      links: [
+        { name: "Supervisor", path: "/reports" },
+      ],
+    },
+    {
+      title: "REPORTS & ANALYTICS",
+      links: [
+        { name: "Reports", path: "/reports" },
+      ],
+    },
+   
   ];
 
-  return (
+   return (
     <Box
-      bg="gray.100"
-      w={{ base: "full", md: "220px" }}
+      bg="white"
+      w={{ base: "full", md: "240px" }}
       minH="calc(100vh - 60px)"
-      p={4}
+      borderRight="1px solid"
+      borderColor="gray.200"
+      p={3}
       display={{ base: "none", md: "block" }}
     >
-      <VStack align="start" spacing={4}>
-        {links.map((link) => (
-          <NavLink
-            to={link.path}
-            key={link.name}
-            style={({ isActive }) => ({
-              width: "100%",
-              padding: "8px",
-              borderRadius: "md",
-              background: isActive ? "#2B6CB0" : "transparent",
-              color: isActive ? "white" : "black",
-            })}
+      {sections.map((section) => (
+        <Box key={section.title} mb={4}>
+          <Text
+            fontSize="xs"
+            fontWeight="bold"
+            color="gray.400"
+            mb={2}
+            px={2}
           >
-            {link.name}
-          </NavLink>
-        ))}
-      </VStack>
+            {section.title}
+          </Text>
+
+          <VStack align="start" spacing={1}>
+            {section.links.map((link) => (
+              <NavLink
+                key={link.name}
+                to={link.path}
+                style={({ isActive }) => ({
+                  width: "100%",
+                  padding: "8px 12px",
+                  borderRadius: "6px",
+                  background: isActive ? "#2B6CB0" : "transparent",
+                  color: isActive ? "white" : "#2D3748",
+                  fontSize: "14px",
+                })}
+              >
+                {link.name}
+              </NavLink>
+            ))}
+          </VStack>
+        </Box>
+      ))}
     </Box>
   );
 };
