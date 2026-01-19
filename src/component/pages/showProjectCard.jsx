@@ -46,9 +46,20 @@ const ProjectCard = (
             <Text fontWeight="bold" fontSize="lg">
               {p.name}
             </Text>
-            <Text fontSize="sm" color="gray.600">
-              Client: {p.client || "N/A"}
-            </Text>
+            {/* <Text fontSize="sm" color="gray.600">
+              Section: {p.client || "N/A"}
+            </Text>          */}
+            <Box
+  p={3}
+  bg="white"
+  borderRadius="md"
+  boxShadow="sm"   // elevation
+  display="inline-block"
+>
+  <Text fontSize="sm" color="gray.600">
+    Section: {p.client || "N/A"}
+  </Text>
+</Box>
             <Text fontSize="sm" color="gray.600">
               Holes: {p.numberOfHoles}
             </Text>

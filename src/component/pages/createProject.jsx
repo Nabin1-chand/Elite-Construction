@@ -74,11 +74,11 @@ const CreateProject = () => {
               </FormControl>
 
               <FormControl>
-                <FormLabel>Client Name</FormLabel>
+                <FormLabel>Section</FormLabel>
                 <Input 
                 value={clientName}
                 onChange={(e)=>setClientName(e.target.value)}
-                placeholder="Enter client name" />
+                placeholder="Enter Section" />
               </FormControl>
 
               <FormControl>
