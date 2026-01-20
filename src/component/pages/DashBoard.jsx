@@ -7,6 +7,7 @@ import { useContext, useState } from "react";
 import { useDisclosure } from "@chakra-ui/react";
 import HoleDetailModal from "../HoleDetailModal";
 import { ProjectContext } from "../../provider/ProjectContext";
+import HoleDetailFormModal from "../HoleDetailFormModal";
 const Dashboard = () => {
   const { projects } = useContext(ProjectContext);
   const [selectedProject, setSelectedProject] = useState("");
@@ -18,7 +19,7 @@ const Dashboard = () => {
   const currentProject = projects.find((p) => p.id === selectedProject);
 
   // const totalHoles = 92;
-   const totalHoles = currentProject ? currentProject.numberOfHoles : 92;
+  const totalHoles = currentProject ? currentProject.numberOfHoles : 92;
   const inProgressHoles = ["B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B9", "B10"];
   const completedHoles = ["B11", "B12", "B13", "B14"];
   const holes = Array.from({ length: totalHoles }, (_, i) => `B${i + 1}`);
@@ -131,20 +132,20 @@ const Dashboard = () => {
                   <DashboardCard title="NOT STARTED"
                     //  value="85"
                     // value={totalHoles - inProgressHoles.length - completedHoles.length}
-                      value={totalHoles - inProgressHoles.length - completedHoles.length}
+                    value={totalHoles - inProgressHoles.length - completedHoles.length}
                     color="gray.100" />
 
                   <DashboardCard title="IN PROGRESS"
                     //  value="7" 
-                        value={inProgressHoles.length}
+                    value={inProgressHoles.length}
                     color="yellow.100" />
                   <DashboardCard title="COMPLETED"
                     //  value="0"
 
-                       value={completedHoles.length}
+                    value={completedHoles.length}
                     color="green.100" />
                   <DashboardCard title="TOTAL HOLES"
-                      value={totalHoles}
+                    value={totalHoles}
                     color="blue.100" />
                 </SimpleGrid>
               </Box>
@@ -152,7 +153,7 @@ const Dashboard = () => {
               {/* Drilling Holes */}
               <Box bg="white" p={5} borderRadius="lg" boxShadow="md">
                 <Text fontSize="lg" fontWeight="bold" mb={3}>
-                     Drilling Holes Diagram (B1 - B{totalHoles})
+                  Drilling Holes Diagram (B1 - B{totalHoles})
                 </Text>
                 <Divider mb={4} />
                 <SimpleGrid columns={{ base: 4, sm: 6, md: 10, lg: 12 }} spacing={4}>
@@ -171,11 +172,17 @@ const Dashboard = () => {
           )}
 
           {/* Hole Detail Modal */}
-          <HoleDetailModal
+          {/* <HoleDetailModal
             isOpen={isOpen}
             onClose={onClose}
             hole={selectedHole}
             status={selectedHole ? getHoleStatus(selectedHole,) : null}
+          /> */}
+          <HoleDetailFormModal
+            isOpen={isOpen}
+            onClose={onClose}
+            hole={selectedHole}
+            status={selectedHole ? getHoleStatus(selectedHole) : null}
           />
         </Box>
       </Flex>
