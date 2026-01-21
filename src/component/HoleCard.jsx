@@ -22,6 +22,7 @@ const HoleCard = ({ label, onClick, isClickable = false, color = "white" }) => {
       <Text color="black" noOfLines={1}>
         {label}
       </Text>
+      
     </Box>
   );
 };

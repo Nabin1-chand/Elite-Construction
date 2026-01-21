@@ -6,6 +6,9 @@ import ProjectCard from "./component/pages/showProjectCard"
 import AngleLog from "./component/pages/AngleLog"
 import DailySupervisionLog from "./component/pages/DailySupervisionLog"
 import DailyDrillingSummaryLog from "./component/pages/DailyDrillingSummaryLog"
+import Drilling from "./component/pages/Drilling"
+import DrillingLog from "./component/pages/DrillingLog"
+import GroutingLog from "./component/pages/GroutingLog"
 
 const App=()=>{
   return(
@@ -17,6 +20,12 @@ const App=()=>{
        <Route path="/projects/angle-log" element={<AngleLog />} />
         <Route path="/projects/supervision-log" element={<DailySupervisionLog />} />
         <Route path="/projects/dailyDrillingSummary-log" element={<DailyDrillingSummaryLog />} />
+        <Route path="/projects/drilling" element={<Drilling />} />
+        <Route path="/projects/drilling-log" element={<DrillingLog />} />
+        <Route path="/projects/grouting-log" element={<GroutingLog />} />
+
+
+
 
 
     </Routes>

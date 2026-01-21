@@ -16,14 +16,13 @@ const Sidebar = () => {
         { name: "Create Project", path: "/projects/create" },
       ],
     },
-    {
-      title: "DRILLING WORK",
+   
+     {
+      title: "GROUTING WORK",
       links: [
-        { name: "Drilling", path: "/reports", 
+        { name: "Grouting Log", path: "/projects/grouting-log" , 
  },
-        { name: "Drilling Log", path: "/reports" },
-        { name: "Drilling Summary Log", path: "/projects/dailyDrillingSummary-log" },
-        { name: "Angle Log", path: "/projects/angle-log" },
+        ,
       ],
     },
     {

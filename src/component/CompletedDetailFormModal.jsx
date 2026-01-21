@@ -71,6 +71,10 @@ const CompletedDetailFormModal = () => {
             <Th {...header} rowSpan={2}>Jetting Pressure<br />(kN)</Th>
             <Th {...header} rowSpan={2}>Flow Rate<br />(Ltr/min)</Th>
             <Th {...header} rowSpan={2}>Jetting Volume<br />(Ltr)</Th>
+            <Th {...header} rowSpan={2}>Sludge Discharge</Th>
+            <Th {...header} rowSpan={2}>Remarks</Th>
+
+
           </Tr>
           <Tr>
             <Th {...header}>From</Th>
@@ -89,6 +93,10 @@ const CompletedDetailFormModal = () => {
             <Td {...cell}>330</Td>
             <Td {...cell}>360</Td>
             <Td {...cell}>4665</Td>
+            <Td {...cell}>--</Td>
+            <Td {...cell}>Completed</Td>
+
+
           </Tr>
         </Tbody>
       </Table>
@@ -119,7 +127,7 @@ const CompletedDetailFormModal = () => {
           <Tr>
             <Th {...header}>Cement (kg)</Th>
             <Th {...header}>Bentonite (kg)</Th>
-            <Th {...header}>Water (kg)</Th>
+            <Th {...header}>Water (Ltr)</Th>
             <Th {...header}>Total (Ltr)</Th>
           </Tr>
         </Thead>
