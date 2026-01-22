@@ -16,6 +16,20 @@ const Sidebar = () => {
         { name: "Create Project", path: "/projects/create" },
       ],
     },
+      {
+      title: "Drilling WORK",
+      links: [
+        { name: "Drilling", path: "/projects/drilling" , 
+ },
+       { name: "Drilling Log", path: "/projects/drilling-log" , 
+ },
+
+ {name: "Daily Drilling SummaryLog", path:"/projects/dailyDrillingSummary-log"},
+ {name: "Angle Log", path:"/projects/angle-log"}
+
+        
+      ],
+    },
    
      {
       title: "GROUTING WORK",

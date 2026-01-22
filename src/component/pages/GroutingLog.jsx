@@ -7,7 +7,10 @@ import {
   Th,
   Td,
   Text,
+  Flex
 } from "@chakra-ui/react";
+import Header from "../Header";
+import Sidebar from "../sidebar";
 
 const GroutingLog = () => {
    const rows = [
@@ -19,6 +22,10 @@ const GroutingLog = () => {
   const cellBorder = "1px solid #CBD5E0";
 
   return (
+       <Flex direction="column" minH="100vh" w="100vw">
+          <Header />
+          <Flex flex="1">
+            <Sidebar />
     <Box bg="white" p={4} borderRadius="lg" boxShadow="md" overflowX="auto">
       <Text fontWeight="bold" mb={3}>
         Data Base
@@ -70,6 +77,8 @@ const GroutingLog = () => {
         </Tbody>
       </Table>
     </Box>
+    </Flex>
+    </Flex>
   );
 };
 
