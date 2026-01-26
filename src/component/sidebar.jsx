@@ -55,6 +55,8 @@ const Sidebar = () => {
       title: "REPORTS & ANALYTICS",
       links: [
         { name: "Reports", path: "/reports" },
+        { name: "Summary Report", path: "/projects/summaryReport" },
+
       ],
     },
 

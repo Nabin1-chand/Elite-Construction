@@ -10,6 +10,7 @@ import Drilling from "./component/pages/Drilling"
 import DrillingLog from "./component/pages/DrillingLog"
 import GroutingLog from "./component/pages/GroutingLog"
 import DailyGroutingLog from "./component/pages/DailyGroutingLog"
+import SummaryReportGraph from "./component/graphs/SummaryReport"
 
 const App=()=>{
   return(
@@ -25,6 +26,8 @@ const App=()=>{
         <Route path="/projects/drilling-log" element={<DrillingLog />} />
         <Route path="/projects/grouting-log" element={<GroutingLog />} />
         <Route path="/projects/dailyGrouting-log" element={<DailyGroutingLog />} />
+        <Route path="/projects/summaryReport" element={<SummaryReportGraph />} />
+
 
 
 
