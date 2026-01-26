@@ -6,7 +6,7 @@ const Sidebar = () => {
     {
       title: "NAVIGATION",
       links: [
-        { name: "Dashboard", path: "/dashboard",},
+        { name: "Dashboard", path: "/dashboard", },
       ],
     },
     {
@@ -16,26 +16,32 @@ const Sidebar = () => {
         { name: "Create Project", path: "/projects/create" },
       ],
     },
-      {
+    {
       title: "Drilling WORK",
       links: [
-        { name: "Drilling", path: "/projects/drilling" , 
- },
-       { name: "Drilling Log", path: "/projects/drilling-log" , 
- },
+        {
+          name: "Drilling", path: "/projects/drilling",
+        },
+        {
+          name: "Drilling Log", path: "/projects/drilling-log",
+        },
 
- {name: "Daily Drilling SummaryLog", path:"/projects/dailyDrillingSummary-log"},
- {name: "Angle Log", path:"/projects/angle-log"}
+        { name: "Daily Drilling SummaryLog", path: "/projects/dailyDrillingSummary-log" },
+        { name: "Angle Log", path: "/projects/angle-log" }
 
-        
+
       ],
     },
-   
-     {
+
+    {
       title: "GROUTING WORK",
       links: [
-        { name: "Grouting Log", path: "/projects/grouting-log" , 
- },
+        {
+          name: "Grouting Log", path: "/projects/grouting-log",
+        },
+        {
+          name: "Daily Grouting Log", path: "/projects/dailyGrouting-log",
+        },
         ,
       ],
     },
@@ -51,10 +57,10 @@ const Sidebar = () => {
         { name: "Reports", path: "/reports" },
       ],
     },
-   
+
   ];
 
-   return (
+  return (
     <Box
       bg="white"
       w={{ base: "full", md: "240px" }}
