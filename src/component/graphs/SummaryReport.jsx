@@ -15,6 +15,8 @@ import {
 import SummaryReportTable from './SummaryReportTable';
 import ThreeDGraph from './ThreeDGraph';
 import TopViewGraph from './TopViewGraph';
+import CurveLine from './CurveLine';
+import JettingVolumeGraph from './JettingVolumeGraph';
 
 const SummaryReportGraph = () => {
   // Common styles for the 3 tables at the bottom
@@ -112,7 +114,8 @@ const SummaryReportGraph = () => {
 {/* <ThreeDGraph/>
  */}
  <TopViewGraph/>
-
+ <CurveLine/>
+ <JettingVolumeGraph/>
     </Container>
   );
 };
