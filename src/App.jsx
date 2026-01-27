@@ -11,11 +11,13 @@ import DrillingLog from "./component/pages/DrillingLog"
 import GroutingLog from "./component/pages/GroutingLog"
 import DailyGroutingLog from "./component/pages/DailyGroutingLog"
 import SummaryReportGraph from "./component/graphs/SummaryReport"
+import DashBoardLayout from "./component/DashBoardLayout"
 
 const App=()=>{
   return(
     <Routes>
       <Route path="/" element={<LoginPage/>}/>
+        <Route element={<DashBoardLayout />}>
       <Route path="/dashboard" element={<Dashboard/>}/>
        <Route path="/projects/create" element={<CreateProject />} />
        <Route path="/projects/showProject" element={<ProjectCard />} />
@@ -27,14 +29,14 @@ const App=()=>{
         <Route path="/projects/grouting-log" element={<GroutingLog />} />
         <Route path="/projects/dailyGrouting-log" element={<DailyGroutingLog />} />
         <Route path="/projects/summaryReport" element={<SummaryReportGraph />} />
-
-
-
-
-
-
-
+ </Route>
     </Routes>
+
+
+
+
+
+
   )
 }
 export default App;

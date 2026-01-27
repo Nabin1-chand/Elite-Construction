@@ -101,12 +101,8 @@ const DrillingLog = () => {
   };
 
   return (
-    <Flex direction="column" minH="100vh" w="100vw">
-      <Header />
 
-      <Flex flex="1">
-        <Sidebar />
-
+<>
         <Box bg="white" p={5} borderRadius="lg" boxShadow="md" overflowX="auto" w="100%">
           <Table size="sm">
             <Thead bg="gray.900">
@@ -163,7 +159,6 @@ const DrillingLog = () => {
             </Tbody>
           </Table>
         </Box>
-      </Flex>
 
       {/* ✅ CAMERA MODAL */}
       <Modal isOpen={isOpen} onClose={closeCamera} size="xl" isCentered>
@@ -189,7 +184,7 @@ const DrillingLog = () => {
           </ModalFooter>
         </ModalContent>
       </Modal>
-    </Flex>
+      </>
   );
 };
 

@@ -10,6 +10,8 @@ import { ProjectContext } from "../../provider/ProjectContext";
 import { useLocation } from "react-router-dom";
 import { useContext,  useEffect } from "react";
 import HoleDetailFormModal from "../HoleDetailFormModal";
+import BoreholeDashboard from "../graphs/BoreholeDashboard";
+import CurveLine from "../graphs/CurveLine";
 const Dashboard = () => {
   const { projects } = useContext(ProjectContext);
     const location = useLocation();
@@ -69,21 +71,10 @@ const Dashboard = () => {
 
 
   return (
-    <Flex direction="column" minH="100vh" w="100vw">
-      <Header />
-      <Flex flex="1" minH="0">
-        <Sidebar />
 
-        <Box
-          flex="1"
-          p={6}
-          mt={8}
-          bg="gray.50"
-          minH="0"
-          display="flex"
-          flexDirection="column"
-          overflowY="auto"
-        >
+
+
+  <>
           {!currentProject ? (
             <Box
               bg="white"
@@ -162,7 +153,8 @@ const Dashboard = () => {
                       </Select>
                     )}
                   </Box>
-
+                      <BoreholeDashboard/>
+                       <CurveLine/>
                   {/* Project Status Overview */}
                   <Box bg="white" p={5} borderRadius="lg" boxShadow="md" mb={6}>
                     <Flex justify="space-between" mb={4}>
@@ -184,7 +176,6 @@ const Dashboard = () => {
                         </Flex>
                       </Flex>
                     </Flex>
-
                     <SimpleGrid columns={{ base: 2, md: 4 }} spacing={4}>
                       <DashboardCard
                         title="NOT STARTED"
@@ -252,9 +243,9 @@ const Dashboard = () => {
             hole={selectedHole}
             status={selectedHole ? getHoleStatus(selectedHole) : null}
           />
-        </Box>
-      </Flex>
-    </Flex>
+   
+  </>
+
   );
 };
 

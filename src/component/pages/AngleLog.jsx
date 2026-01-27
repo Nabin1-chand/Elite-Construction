@@ -15,11 +15,7 @@ import Sidebar from "../sidebar";
 
 const AngleLog = () => {
   return (
-    <Flex direction="column" minH="100vh" w="100vw">
-      <Header />
-
-      <Flex flex="1">
-        <Sidebar />
+    
 
         <Box flex="1" p={6} bg="gray.50">
           <Box bg="white" p={6} rounded="md" shadow="sm" maxW="900px">
@@ -87,8 +83,6 @@ const AngleLog = () => {
             </Button>
           </Box>
         </Box>
-      </Flex>
-    </Flex>
   );
 };
 

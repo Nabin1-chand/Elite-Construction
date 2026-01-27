@@ -12,11 +12,7 @@ import Sidebar from "../sidebar";
 
 const DailySupervisionLog = () => {
   return (
-    <Flex direction="column" minH="100vh" w="100vw">
-      <Header />
 
-      <Flex flex="1">
-        <Sidebar />
 
         <Box flex="1" p={6} bg="gray.50">
           <Box bg="white" p={6} rounded="md" shadow="sm">
@@ -92,8 +88,7 @@ const DailySupervisionLog = () => {
             <Button colorScheme="blue">Save Log</Button>
           </Box>
         </Box>
-      </Flex>
-    </Flex>
+    
   );
 };
 

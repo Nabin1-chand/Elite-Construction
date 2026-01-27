@@ -22,10 +22,7 @@ const ProjectCard = (
     navigate("/projects/create", { state: { projectId } });
   };
   return (
-    <Flex direction="column" minH="100vh" w="100vw">
-      <Header />
-      <Flex flex="1">
-        <Sidebar />
+  
         <Flex wrap="wrap" gap={4} p={6} bg="gray.50">
 
           {projects.map((p) => (
@@ -85,8 +82,7 @@ const ProjectCard = (
           ))}
 
         </Flex>
-      </Flex>
-    </Flex>
+    
 
 
   );

@@ -65,12 +65,19 @@ const Sidebar = () => {
   return (
     <Box
       bg="white"
-      w={{ base: "full", md: "240px" }}
-      minH="calc(100vh - 60px)"
+      h="100%"                 // ✅ take parent height
+      overflowY="auto"         // ✅ enable sidebar scroll
       borderRight="1px solid"
       borderColor="gray.200"
       p={3}
       display={{ base: "none", md: "block" }}
+      sx={{
+        "&::-webkit-scrollbar": { width: "6px" },
+        "&::-webkit-scrollbar-thumb": {
+          background: "#CBD5E0",
+          borderRadius: "4px",
+        },
+      }}
     >
       {sections.map((section) => (
         <Box key={section.title} mb={4}>

@@ -116,8 +116,6 @@ const SummaryReportGraph = () => {
 <SummaryReportTable/>
  <ThreeDGraph/> 
  <TopViewGraph/>
- <CurveLine/>
- <BoreholeDashboard/>
  <JettingGraph/>
  <GroutQualityChart/>
     </Container>

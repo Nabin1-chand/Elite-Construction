@@ -43,15 +43,9 @@ const CreateProject = () => {
     navigate("/projects/showProject");
   };
   return (
-    <Flex direction="column" minH="100vh" w="100vw">
-      {/* Header */}
-      <Header />
+ 
 
-      {/* Sidebar + Content */}
-      <Flex flex="1">
-        <Sidebar />
 
-        {/* Main Content */}
         <Box flex="1" p={6} bg="gray.50">
           <Box
             bg="white"
@@ -112,8 +106,6 @@ const CreateProject = () => {
             </Flex>
           </Box>
         </Box>
-      </Flex>
-    </Flex>
   );
 };
 

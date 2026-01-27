@@ -28,10 +28,7 @@ const navigate = useNavigate();
   
 
   return (
-    <Flex direction="column" minH="100vh" w="100vw">
-      <Header />
-      <Flex flex="1">
-        <Sidebar />
+
         <Flex wrap="wrap" gap={4} p={6} bg="gray.50">
           {projects.map((p) => (
             <Box
@@ -83,8 +80,7 @@ const navigate = useNavigate();
           ))}
 
         </Flex>
-      </Flex>
-    </Flex>
+
 
 
   );
