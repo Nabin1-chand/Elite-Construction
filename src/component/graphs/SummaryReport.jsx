@@ -18,6 +18,8 @@ import TopViewGraph from './TopViewGraph';
 import CurveLine from './CurveLine';
 import JettingVolumeGraph from './BoreholeDashboard';
 import BoreholeDashboard from './BoreholeDashboard';
+import JettingGraph from './JettingProporties';
+import GroutQualityChart from './GroutQualityChart';
 
 const SummaryReportGraph = () => {
   // Common styles for the 3 tables at the bottom
@@ -112,11 +114,12 @@ const SummaryReportGraph = () => {
       </Box>
 
 <SummaryReportTable/>
-{/* <ThreeDGraph/>
- */}
+ <ThreeDGraph/> 
  <TopViewGraph/>
  <CurveLine/>
  <BoreholeDashboard/>
+ <JettingGraph/>
+ <GroutQualityChart/>
     </Container>
   );
 };
