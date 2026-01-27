@@ -12,6 +12,9 @@ import {
   Tooltip,
   Container,
 } from '@chakra-ui/react';
+import SummaryReportTable from './SummaryReportTable';
+import ThreeDGraph from './ThreeDGraph';
+import TopViewGraph from './TopViewGraph';
 
 const SummaryReportGraph = () => {
   // Common styles for the 3 tables at the bottom
@@ -105,7 +108,10 @@ const SummaryReportGraph = () => {
         </Grid>
       </Box>
 
-
+<SummaryReportTable/>
+{/* <ThreeDGraph/>
+ */}
+ <TopViewGraph/>
 
     </Container>
   );
