@@ -14,13 +14,14 @@ import {
 } from '@chakra-ui/react';
 import SummaryReportTable from './SummaryReportTable';
 import ThreeDGraph from './ThreeDGraph';
-import TopViewGraph from './TopViewGraph';
+import TopViewGraph from '../pages/DevationGraph';
 import CurveLine from './CurveLine';
 import JettingVolumeGraph from './BoreholeDashboard';
 import BoreholeDashboard from './BoreholeDashboard';
 import JettingGraph from './JettingProporties';
 import GroutQualityChart from './GroutQualityChart';
 import DailySiteReport from '../pages/DailySiteReport';
+import DevationGraph from '../pages/DevationGraph';
 
 const SummaryReportGraph = () => {
   // Common styles for the 3 tables at the bottom
@@ -115,13 +116,11 @@ const SummaryReportGraph = () => {
       </Box>
 
 <SummaryReportTable/>
- {/* <ThreeDGraph/>  */}
- {/* <TopViewGraph/> */}
- {/* <JettingGraph/> */}
- {/* <GroutQualityChart/> */}
+ <ThreeDGraph/> 
+ <JettingGraph/>
+ <GroutQualityChart/>
 
 
- <DailySiteReport/>
     </Container>
   );
 };

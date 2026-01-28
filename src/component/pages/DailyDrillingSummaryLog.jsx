@@ -76,11 +76,6 @@ export default function DailyDrillingSummaryLog() {
 
   return (
 
-        <Flex direction="column" minH="100vh" w="100vw">
-          <Header />
-    
-          <Flex flex="1">
-            <Sidebar />
     <Box p={6} bg="gray.50">
       <Box bg="white" p={6} rounded="md" shadow="md">
         <Heading size="md" textAlign="center" mb={6}>
@@ -213,7 +208,5 @@ export default function DailyDrillingSummaryLog() {
         </Flex>
       </Box>
     </Box>
-    </Flex>
-    </Flex>
   );
 }

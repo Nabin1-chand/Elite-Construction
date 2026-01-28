@@ -54,8 +54,10 @@ const Sidebar = () => {
     {
       title: "REPORTS & ANALYTICS",
       links: [
-        { name: "Reports", path: "/reports" },
+        { name: "Daily Site Report", path: "/projects/dailySiteReport" },
         { name: "Summary Report", path: "/projects/summaryReport" },
+        { name: "Deviation Graph", path: "/projects/devationGraph" },
+
 
       ],
     },
