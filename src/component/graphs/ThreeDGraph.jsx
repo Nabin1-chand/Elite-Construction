@@ -78,7 +78,7 @@ const ThreeDGraph = () => {
   }
 
   return (
-    <Box p={5} bg="white" borderRadius="xl" shadow="lg" maxW="900px" mx="auto">
+    <Box p={5} mt={8} bg="white" borderRadius="xl" shadow="lg" maxW="900px" mx="auto">
       <VStack spacing={4} align="stretch">
         <Center flexDirection="column">
           <Heading size="md" fontWeight="600">Hexagonal - 3D Overview</Heading>

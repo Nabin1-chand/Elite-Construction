@@ -9,6 +9,7 @@ import {
   HStack,
   Center,
 } from '@chakra-ui/react';
+import ThreeDGraph from '../graphs/ThreeDGraph';
 
 const DevationGraph = () => {
 
@@ -226,6 +227,7 @@ const DevationGraph = () => {
           </Box>
         </Flex>
       </Box>
+      <ThreeDGraph/>
     </Box>
   );
 };
