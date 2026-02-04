@@ -2,7 +2,7 @@ import { Box, VStack, Text } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
-  const sections = [
+const sections = [
     {
       title: "NAVIGATION",
       links: [
@@ -53,6 +53,8 @@ const Sidebar = () => {
       links: [
         { name: "Daily Site Report", path: "/projects/dailySiteReport" },
         { name: "Summary Report", path: "/projects/summaryReport" },
+        { name: "Daily Site Photo", path: "/projects/dailyPhotoSite" },
+
         { name: "Deviation Graph", path: "/projects/devationGraph" },
 
 

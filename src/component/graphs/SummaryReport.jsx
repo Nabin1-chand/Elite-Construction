@@ -14,7 +14,6 @@ import {
 } from '@chakra-ui/react';
 import SummaryReportTable from './SummaryReportTable';
 import ThreeDGraph from './ThreeDGraph';
-import TopViewGraph from '../pages/DevationGraph';
 import CurveLine from './CurveLine';
 import JettingVolumeGraph from './BoreholeDashboard';
 import BoreholeDashboard from './BoreholeDashboard';
@@ -118,8 +117,6 @@ const SummaryReportGraph = () => {
 <SummaryReportTable/>
  <JettingGraph/>
  <GroutQualityChart/>
-
-
     </Container>
   );
 };
