@@ -14,6 +14,7 @@ import SummaryReportGraph from "./component/graphs/SummaryReport"
 import DashBoardLayout from "./component/DashBoardLayout"
 import DailySiteReport from "./component/pages/DailySiteReport"
 import DevationGraph from "./component/pages/DevationGraph"
+import DrillingHole from "./component/pages/DrillingHole"
 
 const App=()=>{
   return(
@@ -34,6 +35,9 @@ const App=()=>{
         {/* dailySiteReport */}
         <Route path="/projects/dailySiteReport" element={<DailySiteReport />} />
         <Route path="/projects/devationGraph" element={<DevationGraph />} />
+        <Route path="/drilling-hole" element={<DrillingHole />} />
+        <Route path="/drilling-hole-log" element={<DrillingLog />} />
+
 
 
  </Route>

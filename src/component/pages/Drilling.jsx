@@ -17,7 +17,7 @@ const Drilling = (
 
 const navigate = useNavigate();
   const handleProjectClick = (projectId) => {
-    navigate("/dashboard", {
+ navigate("/drilling-hole", {
       state: {
         projectId,
         fromDrillingLog: true,

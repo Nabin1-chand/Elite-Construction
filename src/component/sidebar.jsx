@@ -20,10 +20,7 @@ const Sidebar = () => {
       title: "Drilling WORK",
       links: [
         {
-          name: "Drilling", path: "/projects/drilling",
-        },
-        {
-          name: "Drilling Log", path: "/projects/drilling-log",
+          name: "Drilling ", path: "/projects/drilling",
         },
 
         { name: "Daily Drilling SummaryLog", path: "/projects/dailyDrillingSummary-log" },
