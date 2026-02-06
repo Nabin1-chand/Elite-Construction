@@ -1,4 +1,10 @@
-import { Box, Text, SimpleGrid, Flex, Divider, Select } from "@chakra-ui/react";
+import { Box, Text, SimpleGrid, Flex, Divider, Select,  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  TableContainer, } from "@chakra-ui/react";
 import DashboardCard from "../DashBoardCard";
 import Header from "../Header";
 import Sidebar from "../sidebar";
@@ -12,6 +18,7 @@ import { useContext,  useEffect } from "react";
 import HoleDetailFormModal from "../HoleDetailFormModal";
 import BoreholeDashboard from "../graphs/BoreholeDashboard";
 import CurveLine from "../graphs/CurveLine";
+import DailySitePhoto from "./DailySitePhoto";
 const Dashboard = () => {
   const { projects } = useContext(ProjectContext);
     const location = useLocation();
@@ -153,8 +160,74 @@ const Dashboard = () => {
                       </Select>
                     )}
                   </Box>
+                  
+      {/* ================= SUMMARY ROW ================= */}
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mb={6}>
+        {/* Status Summary */}
+        <Box bg="white" p={4} >
+          <Text fontSize="18" fontWeight="bold" textDecoration="underline" mb={2}>
+            Status Summary
+          </Text>
+          <Text fontWeight="bold">Current Complexity: 72%</Text>
+          <Text fontWeight="bold">Variance to Plan: +4%</Text>
+        </Box>
+
+        {/* Material Summary with Table */}
+        <Box bg="white" p={4} >
+          <Text fontSize="18" fontWeight="bold" textDecoration="underline" mb={3}>
+            Material Summary
+          </Text>
+
+        <TableContainer border="1px solid" borderColor="gray.300">
+  <Table size="sm" >
+    <Thead bg="gray.100">
+      <Tr>
+        <Th border="1px solid" borderColor="gray.300">
+          
+        </Th>
+        <Th border="1px solid" borderColor="gray.300">
+          Cement
+        </Th>
+        <Th border="1px solid" borderColor="gray.300">
+        Bentonite
+        </Th>
+      </Tr>
+    </Thead>
+
+    <Tbody>
+      <Tr>
+        <Td border="1px solid" borderColor="gray.300">Total Consumed</Td>
+        <Td isNumeric border="1px solid" borderColor="gray.300">
+        </Td>
+        
+      </Tr>
+
+  
+
+      <Tr>
+        <Td border="1px solid" borderColor="gray.300">Remaining</Td>
+        <Td isNumeric border="1px solid" borderColor="gray.300">
+        </Td>
+        <Td isNumeric border="1px solid" borderColor="gray.300">
+        </Td>
+      </Tr>
+    </Tbody>
+  </Table>
+</TableContainer>
+        </Box>
+
+        {/* Jetting Summary */}
+        <Box bg="white" p={4} >
+          <Text fontSize="18" fontWeight="bold" textDecoration="underline" mb={2}>
+            Jetting Summary
+          </Text>
+          <Text>Total Jetting Length: 540 m</Text>
+          <Text>Total Jetting Volume: 320 m³</Text>
+        </Box>
+      </SimpleGrid>
                       <BoreholeDashboard/>
                        <CurveLine/>
+                       <DailySitePhoto/>
                   {/* Project Status Overview */}
                   <Box bg="white" p={5} borderRadius="lg" boxShadow="md" mb={6}>
                     <Flex justify="space-between" mb={4}>

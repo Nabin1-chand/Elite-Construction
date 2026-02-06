@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Box,
   Text,
@@ -31,6 +32,8 @@ const header = {
 };
 
 const DailyGroutingLog = () => {
+  const holes = Array.from({ length: 90 }, (_, i) => `B${i + 1}`);
+  const [selectedHole, setSelectedHole] = useState("B11");
   return (
     <Box border="1px solid" borderColor="gray.600" p={3} bg="white">
 
@@ -47,7 +50,22 @@ const DailyGroutingLog = () => {
         </Box>
         <Box>
           <Text fontSize="11px">Hole No.</Text>
-          <Text fontSize="12px" fontWeight="600">B85</Text>
+  <Select
+    size="xs"
+  variant="unstyled"
+  w="60px"
+  minW="60px"
+  textAlign="center"
+  value={selectedHole}
+  onChange={(e)=>setSelectedHole(e.target.value)}
+  >
+
+    {holes.map((hole) => (
+      <option p={4} key={hole} value={hole}>
+        {hole}
+      </option>
+    ))}
+  </Select>
         </Box>
         <Box>
           <Button size="sm" colorScheme="blue">Load</Button>
@@ -63,7 +81,7 @@ const DailyGroutingLog = () => {
       <Table size="sm" border="1px solid" borderColor="gray.500">
         <Thead>
           <Tr>
-            <Th {...header} rowSpan={2}>Hole No.</Th>
+            <Th {...header} rowSpan={2}>Hole No.</Th>      
             <Th {...header} rowSpan={2}>Diameter</Th>
             <Th {...header} colSpan={2}>Grouting Time</Th>
             <Th {...header} rowSpan={2}>Jetting Speed<br />(rpm)</Th>
@@ -76,7 +94,7 @@ const DailyGroutingLog = () => {
 
             <Th {...header} rowSpan={2}>Jetting Volume<br />(Ltr)</Th>
             <Th {...header} rowSpan={2}>Sludge Discharge</Th>
-            <Th {...header} rowSpan={2}>Remarks</Th>
+            <Th {...header} rowSpan={2}>Status</Th>
           </Tr>
 
           {/* SUB HEADERS */}
@@ -90,7 +108,7 @@ const DailyGroutingLog = () => {
 
         <Tbody>
           <Tr>
-            <Td {...cell}>B11</Td>
+            <Td {...cell}>{selectedHole}</Td>
             <Td {...cell}>2.8</Td>
 
             {/* Grouting Time */}
@@ -159,12 +177,12 @@ const DailyGroutingLog = () => {
     <Table size="sm" border="1px solid" borderColor="gray.500">
       <Thead>
         <Tr>
-          <Th {...header}>Operating Temp (°C)</Th>
-          <Td {...cell}>5 - 45</Td>
+          <Th {...header}>Air Flow (m3/min)</Th>
+          <Td {...cell}>12</Td>
         </Tr>
         <Tr>
-          <Th {...header}>Max Intake Temp (°C)</Th>
-          <Td {...cell}>50</Td>
+          <Th {...header}>Air Pressure (KN)</Th>
+          <Td {...cell}>12</Td>
         </Tr>
       </Thead>
     </Table>
