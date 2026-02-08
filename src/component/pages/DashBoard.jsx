@@ -307,8 +307,9 @@ const Dashboard = () => {
                   </Box>
 <SludgeDischargeGraph/>
                       <BoreholeDashboard/>
+<JettingGraph/>
+
                       <GroutQualityChart/>
-{/* <JettingGraph/> */}
 
                 </>
               )}
