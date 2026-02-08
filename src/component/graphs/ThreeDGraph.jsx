@@ -15,7 +15,6 @@ import * as THREE from 'three';
 ========================= */
 const Borehole = ({ position, color }) => (
   <mesh position={position}>
-    {/* Reduced height from 12 → 8 */}
     <cylinderGeometry args={[0.28, 0.28, 8, 32]} />
     <meshStandardMaterial
       color={color}
@@ -36,11 +35,7 @@ const AxisLabels = () => {
     <group>
       {/* X Axis */}
       {ticks.map((val) => (
-        <Billboard
-          key={`x-${val}`}
-          position={[val - 2, 0.25, 3]}
-          follow
-        >
+        <Billboard key={`x-${val}`} position={[val - 2, 0.25, 3]} follow>
           <Text3D fontSize={0.22} color="black" anchorX="center">
             {val}
           </Text3D>
@@ -49,11 +44,7 @@ const AxisLabels = () => {
 
       {/* Y Axis */}
       {ticks.map((val) => (
-        <Billboard
-          key={`y-${val}`}
-          position={[-3, 0.25, val - 2]}
-          follow
-        >
+        <Billboard key={`y-${val}`} position={[-3, 0.25, val - 2]} follow>
           <Text3D fontSize={0.22} color="black" anchorX="center">
             {val}
           </Text3D>
@@ -62,11 +53,7 @@ const AxisLabels = () => {
 
       {/* Depth Axis (0 to -8) */}
       {[0, -2, -4, -6, -8].map((val) => (
-        <Billboard
-          key={`z-${val}`}
-          position={[-3.5, val, -2.5]}
-          follow
-        >
+        <Billboard key={`z-${val}`} position={[-3.5, val, -2.5]} follow>
           <Text3D fontSize={0.22} color="gray" anchorX="right">
             {val}
           </Text3D>
@@ -94,7 +81,6 @@ const ThreeDGraph = () => {
   for (let x = 0; x < 5; x++) {
     for (let y = 0; y < 5; y++) {
       boreholes.push({
-        // Height 8 → center at -4 (0 to -8)
         pos: [x - 2, -4, y - 2],
         color: colors[(x + y) % colors.length]
       });
@@ -103,12 +89,12 @@ const ThreeDGraph = () => {
 
   return (
     <Box
+      h="520px"
+  w="100%"
+  maxW="1000px" 
       p={5}
       mt={8}
       bg="white"
-      borderRadius="xl"
-      shadow="lg"
-      maxW="900px"
       mx="auto"
     >
       <VStack spacing={4}>
@@ -119,7 +105,6 @@ const ThreeDGraph = () => {
           </Text>
         </Center>
 
-        {/* Fixed Size Canvas */}
         <Box
           h="520px"
           w="100%"
@@ -128,7 +113,6 @@ const ThreeDGraph = () => {
           position="relative"
           border="1px solid #E2E8F0"
         >
-          {/* UI Labels */}
           <Text position="absolute" top={3} left={3} fontSize="xs" fontWeight="bold">
             Depth (m)
           </Text>
@@ -141,7 +125,6 @@ const ThreeDGraph = () => {
 
           <Suspense fallback={<Center h="100%">Loading 3D...</Center>}>
             <Canvas>
-              {/* Camera adjusted to compress height */}
               <PerspectiveCamera
                 makeDefault
                 position={[9, 6, 9]}
@@ -153,22 +136,9 @@ const ThreeDGraph = () => {
 
               <AxisLabels />
 
-              {/* Red Surface Boundary */}
-              <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
-                <ringGeometry args={[3.45, 3.55, 64]} />
-                <meshBasicMaterial
-                  color="red"
-                  side={THREE.DoubleSide}
-                />
-              </mesh>
-
               {/* Boreholes */}
               {boreholes.map((b, i) => (
-                <Borehole
-                  key={i}
-                  position={b.pos}
-                  color={b.color}
-                />
+                <Borehole key={i} position={b.pos} color={b.color} />
               ))}
 
               <Grid

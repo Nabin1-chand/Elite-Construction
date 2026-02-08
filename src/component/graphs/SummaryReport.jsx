@@ -115,8 +115,6 @@ const SummaryReportGraph = () => {
       </Box>
 
 <SummaryReportTable/>
- <JettingGraph/>
- <GroutQualityChart/>
     </Container>
   );
 };

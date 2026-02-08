@@ -13,6 +13,9 @@ import {
   Button
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import BoreholeDashboard from "../graphs/BoreholeDashboard";
+import GroutQualityChart from "../graphs/GroutQualityChart";
+import JettingGraph from "../graphs/JettingProporties";
 const OperationalMonitoringLog = () => {
   const data = [
     {
@@ -111,6 +114,7 @@ const OperationalMonitoringLog = () => {
           Save
         </Button>
       </Flex>
+      <JettingGraph/>
     </Box>
   );
 };
