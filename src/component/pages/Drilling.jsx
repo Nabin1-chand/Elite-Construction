@@ -21,6 +21,7 @@ const navigate = useNavigate();
       state: {
         projectId,
         fromDrillingLog: true,
+        
       },
     });
   };
