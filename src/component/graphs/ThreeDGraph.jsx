@@ -1,14 +1,14 @@
-import React, { Suspense } from 'react';
-import { Box, Center, Heading, Text, VStack } from '@chakra-ui/react';
-import { Canvas } from '@react-three/fiber';
+import React, { Suspense } from "react";
+import { Box, Center, Heading, Text, VStack } from "@chakra-ui/react";
+import { Canvas } from "@react-three/fiber";
 import {
   OrbitControls,
   PerspectiveCamera,
   Grid,
   Billboard,
-  Text as Text3D
-} from '@react-three/drei';
-import * as THREE from 'three';
+  Text as Text3D,
+} from "@react-three/drei";
+import * as THREE from "three";
 
 /* =========================
    Borehole Component
@@ -68,12 +68,12 @@ const AxisLabels = () => {
 ========================= */
 const ThreeDGraph = () => {
   const colors = [
-    '#4299E1',
-    '#F56565',
-    '#48BB78',
-    '#ED8936',
-    '#9F7AEA',
-    '#38B2AC'
+    "#4299E1",
+    "#F56565",
+    "#48BB78",
+    "#ED8936",
+    "#9F7AEA",
+    "#38B2AC",
   ];
 
   const boreholes = [];
@@ -82,21 +82,13 @@ const ThreeDGraph = () => {
     for (let y = 0; y < 5; y++) {
       boreholes.push({
         pos: [x - 2, -4, y - 2],
-        color: colors[(x + y) % colors.length]
+        color: colors[(x + y) % colors.length],
       });
     }
   }
 
   return (
-    <Box
-      h="520px"
-  w="100%"
-  maxW="1000px" 
-      p={5}
-      mt={8}
-      bg="white"
-      mx="auto"
-    >
+    <Box h="500px" w="90%" maxW="1000px" p={5} mt={8} bg="white" mx="auto">
       <VStack spacing={4}>
         <Center flexDirection="column">
           <Heading size="md">Hexagonal - 3D Overview</Heading>
@@ -113,23 +105,37 @@ const ThreeDGraph = () => {
           position="relative"
           border="1px solid #E2E8F0"
         >
-          <Text position="absolute" top={3} left={3} fontSize="xs" fontWeight="bold">
+          <Text
+            position="absolute"
+            top={3}
+            left={3}
+            fontSize="xs"
+            fontWeight="bold"
+          >
             Depth (m)
           </Text>
-          <Text position="absolute" bottom={3} left="20%" fontSize="xs" fontWeight="bold">
+          <Text
+            position="absolute"
+            bottom={3}
+            left="20%"
+            fontSize="xs"
+            fontWeight="bold"
+          >
             Y (m)
           </Text>
-          <Text position="absolute" bottom={3} right="20%" fontSize="xs" fontWeight="bold">
+          <Text
+            position="absolute"
+            bottom={3}
+            right="20%"
+            fontSize="xs"
+            fontWeight="bold"
+          >
             X (m)
           </Text>
 
           <Suspense fallback={<Center h="100%">Loading 3D...</Center>}>
             <Canvas>
-              <PerspectiveCamera
-                makeDefault
-                position={[9, 6, 9]}
-                fov={45}
-              />
+              <PerspectiveCamera makeDefault position={[9, 6, 9]} fov={45} />
 
               <ambientLight intensity={0.8} />
               <pointLight position={[10, 15, 10]} />

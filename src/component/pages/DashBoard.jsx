@@ -17,6 +17,9 @@ import HoleDetailFormModal from "../HoleDetailFormModal";
 import BoreholeDashboard from "../graphs/BoreholeDashboard";
 import CurveLine from "../graphs/CurveLine";
 import PhotoCard from "../PhotoCard";
+import SludgeDischargeGraph from "../graphs/SludgeDischargeGraph";
+import GroutQualityChart from "../graphs/GroutQualityChart";
+import JettingGraph from "../graphs/JettingProporties";
 const Dashboard = () => {
   const { projects } = useContext(ProjectContext);
     const location = useLocation();
@@ -223,8 +226,8 @@ const Dashboard = () => {
           <Text>Total Jetting Volume: 320 m³</Text>
         </Box>
       </SimpleGrid>
-                      <BoreholeDashboard/>
                        <CurveLine/>
+
                        <PhotoCard/>
                   {/* Project Status Overview */}
                   <Box bg="white" p={5} borderRadius="lg" boxShadow="md" mb={6}>
@@ -302,6 +305,11 @@ const Dashboard = () => {
                       ))}
                     </SimpleGrid>
                   </Box>
+<SludgeDischargeGraph/>
+                      <BoreholeDashboard/>
+                      <GroutQualityChart/>
+{/* <JettingGraph/> */}
+
                 </>
               )}
             </>
