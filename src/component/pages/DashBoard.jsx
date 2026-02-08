@@ -6,8 +6,6 @@ import { Box, Text, SimpleGrid, Flex, Divider, Select,  Table,
   Td,
   TableContainer, } from "@chakra-ui/react";
 import DashboardCard from "../DashBoardCard";
-import Header from "../Header";
-import Sidebar from "../sidebar";
 import HoleCard from "../HoleCard";
 import { useState } from "react";
 import { useDisclosure } from "@chakra-ui/react";
@@ -18,7 +16,7 @@ import { useContext,  useEffect } from "react";
 import HoleDetailFormModal from "../HoleDetailFormModal";
 import BoreholeDashboard from "../graphs/BoreholeDashboard";
 import CurveLine from "../graphs/CurveLine";
-import DailySitePhoto from "./DailySitePhoto";
+import PhotoCard from "../PhotoCard";
 const Dashboard = () => {
   const { projects } = useContext(ProjectContext);
     const location = useLocation();
@@ -227,7 +225,7 @@ const Dashboard = () => {
       </SimpleGrid>
                       <BoreholeDashboard/>
                        <CurveLine/>
-                       <DailySitePhoto/>
+                       <PhotoCard/>
                   {/* Project Status Overview */}
                   <Box bg="white" p={5} borderRadius="lg" boxShadow="md" mb={6}>
                     <Flex justify="space-between" mb={4}>

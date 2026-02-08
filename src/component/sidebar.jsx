@@ -36,6 +36,9 @@ const sections = [
         {
           name: "Grouting Log", path: "/projects/grouting-log",
         },
+          {
+          name: "Operational Monitoring Log", path: "/projects/operation-monitoring-log",
+        },
         {
           name: "Daily Grouting Log", path: "/projects/dailyGrouting-log",
         },

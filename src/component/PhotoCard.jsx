@@ -94,8 +94,7 @@ const PhotoCard = () => {
               <Td border="1px solid #ccc">
                  <Textarea
                  rowGap={2}
-              rows={5}
-                cols={10}
+           
 
     size="sm"
     placeholder="Enter remark"
